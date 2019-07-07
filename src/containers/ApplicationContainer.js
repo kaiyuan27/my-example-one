@@ -1,11 +1,14 @@
 import React, { useEffect } from "react"
 import useStore from "./../store/UseStore"
-import { getUserList, handleOnChangeTextInput } from "./../actions/commonAction"
+import { getUserList, handleOnChangeTextInput, openAccordianList } from "./../actions/commonAction"
 import SearchInput from "./../components/SearchInput/SearchInput"
 import AccordianData from "./../components/AccordianData/AccordianData"
 
 export const ApplicationContainer = () => {
   const [state, dispatch] = useStore()
+  const { common } = state
+  const { searchInput } = common
+
   useEffect(() => {
     if (state["common"].userList === null) {
       getUserList(dispatch)
@@ -13,11 +16,19 @@ export const ApplicationContainer = () => {
   })
 
   const handleOnChange = (field, data) => {
-    dispatch(handleOnChangeTextInput(field, data))
+    handleOnChangeTextInput(field, data, dispatch, common.userList)
   }
 
-  const { common } = state
-  const { searchInput } = common
+  const arrayInObject = [
+    {
+      array: ["street", "suite", "city", "zipcode"]
+    }
+  ]
+
+  const onClick = (data) => {
+    dispatch(openAccordianList(data))
+  }
+
   return (
     <div>
       <SearchInput
@@ -30,7 +41,12 @@ export const ApplicationContainer = () => {
         <AccordianData
           data={common.fliteredUserList}
           headerParameter={"name"}
-          sequenceArray={["phone", "email"]}
+          sequenceArray={["phone", "email", "address"]}
+          sequenceLabel={["Mobile", "Email", "Address"]}
+          objectInObject={["address"]}
+          sequenceInObject={arrayInObject}
+          idValue={common.openUserListID}
+          onClick={(data) => onClick(data)}
         />
       }
 
