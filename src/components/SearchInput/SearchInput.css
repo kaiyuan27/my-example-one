@@ -1,0 +1,43 @@
+.searchInputLabel--withoutValue {
+  display: block
+}
+
+.searchInputLabel {
+  display: none
+}
+
+.searchInputLabel, .searchInputLabel--withoutValue {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  font-size: 16px;
+}
+
+#searchInput-container {
+  display: flex;
+  border: 1px solid #666
+}
+
+.searchInput-field {
+  height: 50px;
+  width: 100%;
+  padding-left: 10px;
+  position: relative;
+  background: transparent;
+  border: none;
+  z-index: 2;
+  font-size: 16px;
+}
+
+.searchInput-field:focus {
+  outline: none
+}
+
+.searchInput-field-container {
+  position: relative;
+}
+
+.search-icon-container {
+  display: flex;
+  padding: 0 10px;
+}

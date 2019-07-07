@@ -14,7 +14,10 @@ export const initialState = {
     errorMsg: "",
     isValid: true
   },
-  openUserListID: ""
+  openUserListID: {
+    id: "",
+    openStatus: true
+  }
 }
 
 export const commonReducer = (state = initialState, actions) => {
@@ -59,7 +62,7 @@ export const commonReducer = (state = initialState, actions) => {
     case types.OPEN_ACCORDIAN_ID:
       return {
         ...state,
-        openUserListID: actions.data
+        openUserListID: { id: actions.data, openStatus: actions.openStatus }
       }
 
     default:

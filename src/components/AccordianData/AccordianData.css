@@ -1,0 +1,57 @@
+.circle-icon {
+  width:50px;
+  height:50px;
+  border-radius:50px;
+  font-size:20px;
+  color:#fff;
+  line-height:50px;
+  text-align:center;
+  background:#f4773f
+}
+
+.accordianData-header-container {
+  display: flex;
+  align-items: center;
+}
+
+.accordianData-header-value {
+  padding-left: 10px;
+
+}
+
+.accordianData-container{
+  padding-bottom: 10px;
+}
+
+.openAccordianData-container {
+  padding-left: 60px;
+}
+
+.openAccordianData-desc {
+  font-size: 12px
+}
+
+.openAccordianData-value{
+  font-size: 14px
+}
+
+.accordianData-header-value-container{
+  border-bottom: 1.5px solid #f47735;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+
+.accordian-desc-value {
+  padding: 10px 0;
+  
+}
+
+@media only screen and (max-width: 767px) {
+  .circle-icon {
+    width: 50px;
+    height: 45px;
+    line-height: 45px;
+  }
+}

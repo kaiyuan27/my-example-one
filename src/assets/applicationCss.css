@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+.body-container{
+  box-sizing: border-box;
+  padding: 20px;
+}
+.application-container {
+  width: 50%;
+  margin: 50px auto;
+}
+
+.common-separator {
+  height: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+  .application-container {
+    margin: 0;
+    width: 100%;
+  }
+}

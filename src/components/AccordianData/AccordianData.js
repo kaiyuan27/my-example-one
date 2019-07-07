@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import "./AccordianData.css"
+
 const htmlType = (type) => {
   let data = ""
   switch (type) {
@@ -43,11 +45,11 @@ const OpenAccordianData = props => {
       }
 
       return (
-        <div key={i}>
-          <div id="openAccodianData-desc">
+        <div className="accordian-desc-value" key={i}>
+          <div id="openAccordianData-desc">
             {desc}
           </div>
-          <div id="openAccodianData-value">
+          <div id="openAccordianData-value">
             {value}
           </div>
         </div>
@@ -55,7 +57,7 @@ const OpenAccordianData = props => {
     })
 
   return (
-    <div id="OpenAccordianData-container">
+    <div className="openAccordianData-container">
       {individualValue}
     </div>
   )
@@ -70,23 +72,29 @@ const AccordianData = props => {
     objectInObject,
     sequenceInObject,
     idValue,
-    onClick
+    onClick,
+    openStatus
   } = props
 
   return (
-    <div id="AccordianData-container">
-      <div></div>
+    <div id="accordianData-full-container" tabIndex="0">
       {
         data.map((individualData, i) => {
           return (
-            <div key={i}>
+            <div className="accordianData-container" key={i}>
               <div
+                className="accordianData-header-container"
                 onClick={() => onClick && onClick(individualData.id.toString())}
               >
-                {individualData[headerParameter]}
+                <div className="circle-icon">
+                  {individualData[headerParameter].charAt(0)}
+                </div>
+                <div className="accordianData-header-value-container">
+                  <label className="accordianData-header-value">{individualData[headerParameter]}</label>
+                </div>
               </div>
 
-              {idValue === (individualData.id.toString()) &&
+              {idValue === (individualData.id.toString()) && openStatus &&
                 <OpenAccordianData
                   individualData={individualData}
                   sequenceArray={sequenceArray}
@@ -99,7 +107,7 @@ const AccordianData = props => {
           )
         })
       }
-    </div>
+    </div >
   )
 }
 
@@ -111,7 +119,8 @@ AccordianData.propTypes = {
   objectInObject: PropTypes.array,
   sequenceInObject: PropTypes.array,
   idValue: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  openStatus: PropTypes.bool
 }
 
 OpenAccordianData.propTypes = {

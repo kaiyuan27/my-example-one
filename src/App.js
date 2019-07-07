@@ -2,6 +2,7 @@ import React, { Component } from "react"
 // import { Provider } from "react-redux"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 
+import "./assets/applicationCss.css"
 import "./App.css"
 import Store from "./store/Store"
 import { route } from "./api/httpsApi"

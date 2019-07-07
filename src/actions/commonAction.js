@@ -42,9 +42,10 @@ export const filterUserList = (value, dispatch, userList) => {
   })
 }
 
-export const openAccordianList = (data) => {
+export const openAccordianList = (data, openStatus) => {
   return {
     type: types.OPEN_ACCORDIAN_ID,
-    data
+    data,
+    openStatus
   }
 }
