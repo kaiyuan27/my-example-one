@@ -76,12 +76,22 @@ const AccordianData = props => {
     openStatus
   } = props
 
+  const detectKeyCode = (e, value) => {
+    if (e.keyCode === 13) {
+      onClick && onClick(value)
+    }
+  }
+
   return (
-    <div id="accordianData-full-container" tabIndex="0">
+    <div id="accordianData-full-container">
       {
         data.map((individualData, i) => {
           return (
-            <div className="accordianData-container" key={i}>
+            <div className="accordianData-container"
+              tabIndex="0"
+              key={i}
+              onKeyDown={(e) => detectKeyCode(e, individualData.id.toString())}
+            >
               <div
                 className="accordianData-header-container"
                 onClick={() => onClick && onClick(individualData.id.toString())}
