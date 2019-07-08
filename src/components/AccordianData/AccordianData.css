@@ -1,12 +1,12 @@
 .circle-icon {
-  width:50px;
-  height:50px;
-  border-radius:50px;
-  font-size:20px;
-  color:#fff;
-  line-height:50px;
-  text-align:center;
-  background:#f4773f
+  width: 45px;
+  height: 40px;
+  border-radius: 35px;
+  font-size: 20px;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  background: #f4773f;
 }
 
 .accordianData-header-container {
@@ -16,27 +16,28 @@
 
 .accordianData-header-value {
   padding-left: 10px;
-
 }
 
-.accordianData-container{
-  padding-bottom: 10px;
+.accordianData-container {
+  /* margin-bottom: 10px;
+  border-bottom: 1.5px solid #f47735; */
+  padding: 0 20px;
 }
 
 .openAccordianData-container {
-  padding-left: 60px;
+  padding-left: 50px;
 }
 
 .openAccordianData-desc {
   font-size: 12px
 }
 
-.openAccordianData-value{
+.openAccordianData-value {
   font-size: 14px
 }
 
-.accordianData-header-value-container{
-  border-bottom: 1.5px solid #f47735;
+.accordianData-header-value-container {
+  /* border-bottom: 1.5px solid #f47735; */
   display: flex;
   align-items: center;
   width: 100%;
@@ -45,13 +46,41 @@
 
 .accordian-desc-value {
   padding: 10px 0;
-  
 }
 
-@media only screen and (max-width: 767px) {
+* :focus {
+  outline: none
+}
+
+.open-accordian-arrow {
+  font-size: 15px;
+  color: #f4773f;
+  line-height: 15px;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.accordianData-container:nth-of-type(even) {
+  background: #F5F5F5;
+}
+
+#accordianData-full-container {
+  margin: -20px;
+}
+
+.close-accordian-arrow {
+  transform: rotate(180deg);
+  font-size: 15px;
+  color: #f4773f;
+  line-height: 15px;
+  text-align: center;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 1023px) {
   .circle-icon {
-    width: 50px;
-    height: 45px;
-    line-height: 45px;
+    width: 45px;
+    height: 35px;
+    line-height: 35px;
   }
 }

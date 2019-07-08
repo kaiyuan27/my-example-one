@@ -15,7 +15,8 @@
 
 #searchInput-container {
   display: flex;
-  border: 1px solid #666
+  border: 1px solid #666;
+  border-radius: 20px;
 }
 
 .searchInput-field {
@@ -30,7 +31,8 @@
 }
 
 .searchInput-field:focus {
-  outline: none
+  outline: none;
+  border-radius: 20px;
 }
 
 .searchInput-field-container {

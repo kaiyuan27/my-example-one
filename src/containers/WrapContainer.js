@@ -4,7 +4,11 @@ import PropTypes from "prop-types"
 const WrapContainer = (props) => {
   return (
     <div className="body-container">
-      {props.children}
+      <div className="wrap-container">
+        <div className="header"> Contact </div>
+        {props.children}
+      </div>
+
     </div>
   )
 }

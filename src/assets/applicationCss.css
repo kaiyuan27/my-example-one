@@ -2,22 +2,81 @@
   box-sizing: border-box;
 }
 
-.body-container{
+html {
+  overflow: hidden;
+}
+
+.body-container {
   box-sizing: border-box;
   padding: 20px;
+  background-color: #f4773f;
+  background-image: linear-gradient(#f4773f, white);
 }
+
 .application-container {
-  width: 50%;
-  margin: 50px auto;
+  width: 70%;
+  margin: 0 auto;
+  background: white;
+  -webkit-box-shadow: -1px 9px 25px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 9px 25px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 9px 25px -3px rgba(0, 0, 0, 0.75);
+  height: calc(100vh - 100px);
+  overflow-x: auto;
+  padding: 20px;
 }
 
 .common-separator {
-  height: 20px;
+  height: 40px;
 }
 
-@media only screen and (max-width: 767px) {
+.header {
+  width: 70%;
+  margin: 0 auto;
+  background: black;
+  height: 55px;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1023px) {
   .application-container {
     margin: 0;
     width: 100%;
+    height: calc(100vh - 55px);
   }
+  .header {
+    width: 100%;
+  }
+  .body-container {
+    padding: 0px;
+  }
+}
+
+/* custom scroll */
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #F5F5F5;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: darkgrey;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

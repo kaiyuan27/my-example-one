@@ -102,6 +102,7 @@ const AccordianData = props => {
                 <div className="accordianData-header-value-container">
                   <label className="accordianData-header-value">{individualData[headerParameter]}</label>
                 </div>
+                <div className={idValue === (individualData.id.toString()) && openStatus ? "open-accordian-arrow" : "close-accordian-arrow"}> &#9660; </div>
               </div>
 
               {idValue === (individualData.id.toString()) && openStatus &&
