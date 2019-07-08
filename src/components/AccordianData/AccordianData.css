@@ -28,12 +28,32 @@
   padding-left: 50px;
 }
 
-.openAccordianData-desc {
-  font-size: 12px
+#openAccordianData-desc {
+  font-size: 10px;
+  color: #787878
 }
 
-.openAccordianData-value {
+#openAccordianData-value {
   font-size: 14px
+}
+
+#openAccordianData-value>a {
+  color: #000;
+  text-decoration: none;
+}
+
+#openAccordianData-img {
+  width: 20px;
+  height: 20px;
+}
+
+.accordian-desc-value-container {
+  display: flex;
+  align-items: center;
+}
+
+.accordian-desc-value {
+  min-width: 300px;
 }
 
 .accordianData-header-value-container {
@@ -48,7 +68,10 @@
   padding: 10px 0;
 }
 
-* :focus {
+.accordianData-container:focus {
+  -webkit-box-shadow: 0px 4px 15px 4px rgba(169, 169, 169, 1);
+  -moz-box-shadow: 0px 4px 15px 4px rgba(169, 169, 169, 1);
+  box-shadow: 0px 4px 15px 4px rgba(169, 169, 169, 1);
   outline: none
 }
 

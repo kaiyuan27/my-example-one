@@ -3,10 +3,15 @@ import { Application } from "./../api/httpsApi"
 
 export const getUserList = (dispatch) => {
   Application.getUserList().then((response) => {
+    const list = response.data.sort(function (a, b) {
+      if (a.name < b.name) { return -1 }
+      if (a.name > b.name) { return 1 }
+      return 0
+    })
     dispatch({
       type: types.GET_USER_LIST,
-      userList: response.data,
-      fliteredUserList: response.data
+      userList: list,
+      fliteredUserList: list
     })
   }).catch((e) => {
     if (e.response) {

@@ -5,18 +5,25 @@ import "./AccordianData.css"
 
 const htmlType = (type) => {
   let data = ""
+  let image = ""
   switch (type) {
     case "phone":
       data = "tel:"
+      image = "phoneIcon.svg"
       break
     case "email":
       data = "mailto:"
+      image = "emailIcon.svg"
+      break
+    case "address":
+      data = ""
+      image = "locationIcon.svg"
       break
     default:
       data = ""
       break
   }
-  return data
+  return { data, image }
 }
 
 const OpenAccordianData = props => {
@@ -25,32 +32,47 @@ const OpenAccordianData = props => {
     sequenceArray.map((name, i) => {
       let value = []
       let desc = ""
+      let image = ""
       if (objectInObject.indexOf(name) >= 0) {
         const loopSequence = sequenceInObject[objectInObject.indexOf(name)].array
         loopSequence.map((loopName, x) => {
           value.push(
-            htmlType(loopName) !== "" ?
-              <a key={x} href={`${htmlType(loopName)}${individualData[name][loopName]}`} > {individualData[name][loopName]} </a> :
+            htmlType(loopName).data !== "" ?
+              <a key={x} href={`${htmlType(loopName).data}${individualData[name][loopName]}`} > {individualData[name][loopName]} </a> :
               <div key={x} >{individualData[name][loopName]}</div>)
           return value
         })
+        const mapURL = name === "address" && individualData[name].geo && individualData[name].geo.lat && individualData[name].geo.lng ? `https://maps.google.com/?ll=${individualData[name].geo.lat},${individualData[name].geo.lng}` : ""
+
+        image = htmlType(name).image !== "" && name === "address" ?
+          <a key={i} href={`${mapURL}`} target="_blank" rel="noopener noreferrer" > <img alt="icon" src={`./images/${htmlType(name).image}`} /> </a> :
+          <div key={i}><img alt="icon" src={`./images/${htmlType(name).image}`} /></div>
 
         desc = <div>{sequenceLabel[i]}</div>
+
       } else {
-        value.push(htmlType(name) !== "" ?
-          <a key={i} href={`${htmlType(name)}${individualData[name]}`} > {individualData[name]} </a> :
+        value.push(htmlType(name).data !== "" ?
+          <a key={i} href={`${htmlType(name).data}${individualData[name]}`} > {individualData[name]} </a> :
           <div key={i}>{individualData[name]}</div>)
 
         desc = <div key={i}>{sequenceLabel[i]}</div>
+        image = htmlType(name).image !== "" ?
+          <a key={i} href={`${htmlType(name).data}${individualData[name]}`} > <img alt="icon" src={`./images/${htmlType(name).image}`} /> </a> :
+          <div key={i}><img alt="icon" src={`./images/${htmlType(name).image}`} /></div>
       }
 
       return (
-        <div className="accordian-desc-value" key={i}>
-          <div id="openAccordianData-desc">
-            {desc}
+        <div className="accordian-desc-value-container" key={i}>
+          <div className="accordian-desc-value">
+            <div id="openAccordianData-value">
+              {value}
+            </div>
+            <div id="openAccordianData-desc">
+              {desc}
+            </div>
           </div>
-          <div id="openAccordianData-value">
-            {value}
+          <div id="openAccordianData-img">
+            {image}
           </div>
         </div>
       )
